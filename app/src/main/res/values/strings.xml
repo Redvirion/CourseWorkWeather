@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CourseWorkWeather</string>
+    <string name="loading">Загрузка погоды...</string>
+    <string name="error_network">Ошибка сети. Проверьте подключение.</string>
+    <string name="error_city">Город не найден.</string>
+    <string name="error_unknown">Неизвестная ошибка.</string>
+    <string name="input_city">Введите город</string>
+    <string name="current_date">Дата</string>
+    <string name="button_weather">Погода</string>
+
+</resources>
