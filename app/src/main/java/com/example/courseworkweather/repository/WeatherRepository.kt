@@ -13,7 +13,6 @@ class WeatherRepository(private val context: Context) {
     private val database = WeatherDatabase.getInstance(context)
     private val cityDao = database.cityDao()
 
-    // ЕДИНСТВЕННАЯ функция получения координат (через Geocoding API)
     suspend fun getCityCoordinates(cityName: String): City? {
         // 1. Кэш
         val cached = cityDao.getCityByName(cityName)

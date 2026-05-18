@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.courseworkweather.data.DailyWeather
 import com.example.courseworkweather.databinding.ActivityMainBinding
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var cityAdapter: ArrayAdapter<String>
     private var daysList: List<DailyWeather> = emptyList()
+    companion object {
+        private const val KEY_VIEWPAGER_POSITION = "viewpager_position"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,13 +74,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // обновляем выпадающий список
+        // обновляем выпадающий список с проверкой активности Activity
         viewModel.suggestions.observe(this) { suggestions ->
             cityAdapter.clear()
             cityAdapter.addAll(suggestions)
             cityAdapter.notifyDataSetChanged()
             if (suggestions.isNotEmpty()) {
-                binding.cityAutocomplete.showDropDown()
+                // Проверяем, что Activity активна и не разрушена
+                if (!isFinishing && !isDestroyed && lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                    binding.cityAutocomplete.post {
+                        if (!isFinishing && !isDestroyed) {
+                            binding.cityAutocomplete.showDropDown()
+                        }
+                    }
+                }
             }
         }
 
@@ -109,13 +120,25 @@ class MainActivity : AppCompatActivity() {
                     val adapter = DayPagerAdapter(this, daysList)
                     binding.viewPager.adapter = adapter
                     if (daysList.isNotEmpty()) {
-                        binding.dateText.text = daysList[0].formattedDate
+                        // Восстанавливаем сохранённую позицию, если есть
+                        val savedPosition = savedInstanceState?.getInt(KEY_VIEWPAGER_POSITION, 0) ?: 0
+                        val position = if (savedPosition < daysList.size) savedPosition else 0
+                        binding.viewPager.setCurrentItem(position, false)
+                        binding.dateText.text = daysList[position].formattedDate
                     }
                 }
                 is WeatherUiState.Error -> {
                     Toast.makeText(this, state.message, Toast.LENGTH_LONG).show()
                 }
             }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Сохраняем текущую позицию ViewPager2, если адаптер уже установлен
+        if (::binding.isInitialized && binding.viewPager.adapter != null) {
+            outState.putInt(KEY_VIEWPAGER_POSITION, binding.viewPager.currentItem)
         }
     }
 }

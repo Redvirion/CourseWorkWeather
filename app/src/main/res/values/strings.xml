@@ -7,5 +7,16 @@
     <string name="input_city">Введите город</string>
     <string name="current_date">Дата</string>
     <string name="button_weather">Погода</string>
-
+    <string name="wind_unit">м/с</string>
+    <string name="pressure_unit">мм рт. ст.</string>
+    <string name="temp_unit">°C</string>
+    <string name="wind_dir_n">С</string>
+    <string name="wind_dir_ne">СВ</string>
+    <string name="wind_dir_e">В</string>
+    <string name="wind_dir_se">ЮВ</string>
+    <string name="wind_dir_s">Ю</string>
+    <string name="wind_dir_sw">ЮЗ</string>
+    <string name="wind_dir_w">З</string>
+    <string name="wind_dir_nw">СЗ</string>
+    <string name="wind_dir_default">—</string>
 </resources>

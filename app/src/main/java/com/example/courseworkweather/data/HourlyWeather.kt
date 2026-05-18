@@ -17,7 +17,7 @@ data class HourlyWeather(
     val hour: String get() = time.substringAfter("T").substringBefore(":") + ":00"
     val date: String get() = time.substringBefore("T")
 
-    val windDirectionText: String
+   /* val windDirectionText: String
         get() = when (windDirection) {
             null -> "—"
             in 0..22, in 338..360 -> "С"
@@ -29,7 +29,7 @@ data class HourlyWeather(
             in 248..292 -> "З"
             in 293..337 -> "СЗ"
             else -> "—"
-        }
+        }*/
 
     val weatherIcon: String
         get() = when (weatherCode) {

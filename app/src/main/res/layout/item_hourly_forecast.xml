@@ -26,7 +26,7 @@
                 android:id="@+id/temp_text"
                 android:layout_width="138dp"
                 android:layout_height="wrap_content"
-                android:text="15°C"
+                android:text="__°C"
                 android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_width="112dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="12:00"
+                android:text="__:__"
                 android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:gravity="end"
-                android:text="☀️"
+                android:text="__"
                 android:textSize="28sp" />
         </LinearLayout>
 
@@ -59,7 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="💧 65%"
+                android:text="💧__"
                 android:textAppearance="?attr/textAppearanceBodySmall" />
 
             <TextView
@@ -67,14 +67,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="🌬️ 3 м/с СВ"
+                android:text="🌬️ __"
                 android:textAppearance="?attr/textAppearanceBodySmall" />
             <TextView
                 android:id="@+id/pressure_text"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:text="🧭 700 мм рт.ст."
+                android:text="🧭 ____"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:gravity="center" />
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="☔ 20%"
+                android:text="☔ __%"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:gravity="end" />
         </LinearLayout>

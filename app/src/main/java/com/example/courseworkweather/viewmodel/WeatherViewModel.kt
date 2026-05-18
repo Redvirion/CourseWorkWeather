@@ -28,7 +28,6 @@ class WeatherViewModel(private val repository: WeatherRepository) : ViewModel() 
     private var searchJob: Job? = null
 
     fun searchCity(query: String) {
-        // отменяем предыдущий поиск
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(500) // debounce 500 мс

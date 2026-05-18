@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CourseWorkWeather</string>
+    <string name="loading">Loading weather...</string>
+    <string name="error_network">Network error. Check your connection.</string>
+    <string name="error_city">City not found.</string>
+    <string name="error_unknown">Unknown error.</string>
+    <string name="input_city">Enter city name</string>
+    <string name="current_date">Date</string>
+    <string name="button_weather">Weather</string>
+    <string name="wind_unit">m/s</string>
+    <string name="pressure_unit">mmHg</string>
+    <string name="temp_unit">°C</string>
+    <string name="wind_dir_n">N</string>
+    <string name="wind_dir_ne">NE</string>
+    <string name="wind_dir_e">E</string>
+    <string name="wind_dir_se">SE</string>
+    <string name="wind_dir_s">S</string>
+    <string name="wind_dir_sw">SW</string>
+    <string name="wind_dir_w">W</string>
+    <string name="wind_dir_nw">NW</string>
+    <string name="wind_dir_default">—</string>
+</resources>
