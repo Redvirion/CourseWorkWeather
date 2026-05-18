@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="82dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/current_date"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+        app:layout_constraintEnd_toStartOf="@id/city_input_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/city_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/refresh_button"
+        app:layout_constraintStart_toEndOf="@id/date_text"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        android:hint="@string/input_city"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/city_autocomplete"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:completionThreshold="2"
+            android:gravity="bottom"
+            android:paddingTop="0dp"
+            android:paddingBottom="5dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refresh_button"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_weather"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/my_button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/city_input_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_input_layout"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
